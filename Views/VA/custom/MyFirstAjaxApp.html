@@ -1,0 +1,70 @@
+<html encoding='utf-8'>
+<title>Word Search</title>
+<body>
+<script language='javascript' type='text/javascript'>
+<!--
+//Browser Support Code 7. DATABASE OPERATIONS 
+function ajaxFunction(){
+var ajaxRequest; // The variable that makes Ajax possible!
+try{
+// Opera 8.0+, Firefox, Safari
+ajaxRequest = new XMLHttpRequest();
+}catch (e){
+// Internet Explorer Browsers
+try{
+ajaxRequest = new ActiveXObject('Msxml2.XMLHTTP');
+}catch (e) {
+try{
+ajaxRequest = new ActiveXObject('Microsoft.XMLHTTP');
+}catch (e){
+// Something went wrong
+alert('Your browser broke!');
+return false;
+}
+}
+}
+var word = document.getElementById('word').value; 
+if(word=='')
+{
+ document.getElementById('ajaxDiv').innerHTML=''; 
+ document.getElementById('ajaxDiv').style.boxShadow='none';
+}
+// Create a function that will receive data
+// sent from the server and will update
+// div section in the same page.
+else
+{
+ajaxRequest.onreadystatechange = function(){
+if(ajaxRequest.readyState == 4){
+var ajaxDisplay = document.getElementById('ajaxDiv'); 
+ajaxDisplay.innerHTML = ajaxRequest.responseText;
+}
+}
+}
+// Now get the value from user and pass it to
+// server script.
+var queryString = '?word=' + word ; 
+ajaxRequest.open('GET', 'getHint.php' + queryString, true);
+ajaxRequest.send(null);
+} 
+function setSuggestion(id)
+{  
+ var sugg=document.getElementById(id).innerHTML;   
+ document.getElementById('word').value=sugg; 
+}   
+</script>
+<center>
+<div style='width:40%;padding:7px;margin-top:7rem;'>
+<img src="/members/Static/VA/images/logoak.png" width="250" height="100" style="margin-bottom:-2rem;">
+<h1 style='font-size:40px;font-weight:400;margin-bottom:-0.01rem;'>Word Search engine</h1>
+<h4 aling='right' style='float:right;margin:0;font-weight:600;margin-right:5rem;margin-top:-0.5rem;text-shadow:1px 2px 1px #ccc;color:#444;'> 	&copy;Abhishek</h4>
+<form name='myForm'> 
+<input type='text' placeholder='Enter the word to be searched' id='word' onkeyup='ajaxFunction()' style='background:#fcfcfc;padding:10px;font-size:18px;border:1px solid #bbb;text-indent:2px;border-radius:5px;width:100%;outline:none;' autofocus autocomplete='off'/>  
+<button type='submit' style='background:#00d;padding:0.5rem;border-radius:3px;outline:none;border-width:0;color:#fff;margin-top:0.5rem;'>Search now</button>
+&nbsp;<a href='#' style='background:#00d;padding:7px;border-radius:3px;outline:none;border-width:0;color:#fff;margin-top:0.8rem;text-decoration:none;display:inline-block;'>Feeling Lucky </a>
+</form> 
+<div id='ajaxDiv' style='border:1px solid #ddd;margin-top:-4rem;z-index:100;background:#fefefe;text-align:left;border-bottom-style:1px solid #ccc;border-bottom-radius:5px;width:99%;box-shadow:0 4px 2px #888;'></div>
+</div>
+</center>
+</body>
+</html>

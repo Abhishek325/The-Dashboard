@@ -1,0 +1,115 @@
+<html lang="en"> 
+<head> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina"> 
+    <title>Signup page - Jargonsmaze</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/members/Static/VA/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/members/Static/VA/css/bootstrap-reset.css" rel="stylesheet">
+    <!--external css--> 
+    <link href="/members/Static/VA/css/style.css" rel="stylesheet"> 
+    <link href="/members/Static/VA/css/style-responsive.css" rel="stylesheet" /> 
+</head> 
+<br><br>
+<body class="lock-screen"> 
+<center>
+    <img src="/members/Static/VA/images/joker.jpg" alt="lock avatar" class="pulse-button" width="150" height="150" />
+    <?php if(isset($success))
+    {  echo "<p style='color:#fff;font-size:20px;'><br>Congratulations,<br>Your details are saved successfully.<br>Click <a href='/members/login' style='color:#e2e2e2;'><u>here</u></a> to login.</p>";exit(); }?>
+        <p style="margin-top:5px;margin-bottom:-4rem;color:#fff;font-size:16px;">We welcome you onboard,<br>you just need to fill up some basic details</p>
+            <form role="form" action="/members/signup" method="post">
+            <input type="text" name="name" id="name" placeholder="Your username here" class="lock-name" style="float:none;width:250px;border-radius:2px;border-width:0;font-size:16px;color:#353535;" onkeydown="resetColor(this.id,'nameStat')" onblur="checkNameFunction(this.value)" autocomplete="off" pattern="[A-Za-z]+[0-9]*" required><label id='nameStat' style="display:block;margin-bottom:-1.8rem;"></label><br>
+            <input type="email" name="email" id="email" placeholder="Your email here" class="lock-name" style="float:none;width:250px;border-radius:2px;border-width:0;font-size:15px;color:#353535;margin-top:3px;" onkeyup="resetColor(this.id,'emailStat')" onblur="checkEmailFunction(this.value)" autocomplete="off" required><label id='emailStat' style="display:block;margin-bottom:-1.8rem;"></label><br>
+            <input type="password" name="pwd" placeholder="Your password here" class="lock-name" style="float:none;width:250px;border-radius:2px;border-width:0;font-size:16px;color:#353535;margin-top:3px;" autocomplete="off" required><br> 
+            <button type="submit" id="submit" onmouseover="checkEmailFunction('email');checkNameFunction('name')" class="btn btn-lock" style="background-color:#00f;margin-top:5px;color:#fff;width:250px;">Submit</button>
+            </form>
+                </center>
+            </div>
+         </div> 
+     <div class="mini-stat clearfix" style="width:50%;text-align:center;height:20%;margin-left:auto;margin-right:auto;background:none;border-radius:0;">        
+     </div>
+    <script src='/members/Static/VA/js/ajax.jquery.min.js'></script>
+    <script type="text/javascript">
+        function checkNameFunction(value){
+            var ajaxRequest; // The variable that makes Ajax possible!  
+            try{
+            // Opera 8.0+, Firefox, Safari
+            ajaxRequest = new XMLHttpRequest();
+            }catch (e){
+            // Internet Explorer Browsers
+            try{
+            ajaxRequest = new ActiveXObject('Msxml2.XMLHTTP');
+            }catch (e) {
+            try{
+            ajaxRequest = new ActiveXObject('Microsoft.XMLHTTP');
+            }catch (e){
+            // Something went wrong
+            alert('Your browser broke!');
+            return false;
+            }
+            }
+            }  
+          ajaxRequest.onreadystatechange = function(){
+          if(ajaxRequest.readyState == 4){ 
+            document.getElementById('nameStat').innerHTML=ajaxRequest.responseText;   
+            var res=ajaxRequest.responseText; 
+            if(res.substring(1,3)==="<d") {  
+             document.getElementById('name').style.color="#d00"; 
+             document.getElementById('name').focus(); 
+            }   
+            else 
+              document.activeElement.blur();  
+           }
+        }  
+        var queryString = '?name=' + value ; 
+        ajaxRequest.open('GET', '/members/validateName' + queryString, true);
+        ajaxRequest.send(null);
+        }  
+
+
+         function checkEmailFunction(value){
+            try{
+            // Opera 8.0+, Firefox, Safari
+            ajaxRequest = new XMLHttpRequest();
+            }catch (e){
+            // Internet Explorer Browsers
+            try{
+            ajaxRequest = new ActiveXObject('Msxml2.XMLHTTP');
+            }catch (e) {
+            try{
+            ajaxRequest = new ActiveXObject('Microsoft.XMLHTTP');
+            }catch (e){
+            // Something went wrong
+            alert('Your browser broke!');
+            return false;
+            }
+            }
+            } 
+          var ajaxRequest; // The variable that makes Ajax possible!     
+          ajaxRequest.onreadystatechange = function(){
+          if(ajaxRequest.readyState == 4){ 
+            document.getElementById('emailStat').innerHTML=ajaxRequest.responseText; 
+            var res=ajaxRequest.responseText;
+            if(res.substring(1,3)==="<d") {   
+             document.getElementById('email').style.color="#d00";
+             document.getElementById('email').focus(); 
+            } 
+            else
+              document.activeElement.blur();  
+           }
+        }  
+        var queryString = '?email=' + value ; 
+        ajaxRequest.open('GET', '/members/validateEmail' + queryString, true);
+        ajaxRequest.send(null);
+        }  
+        function resetColor(mid,id)
+        {
+             document.getElementById(mid).style.color="#000";
+             document.getElementById(id).innerHTML="";    
+        }
+    </script>
+  </body> 
+</html>

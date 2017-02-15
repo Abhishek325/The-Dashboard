@@ -1,0 +1,33 @@
+<html lang="en"> 
+<head> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina"> 
+    <title>Reset password - Jargonsmaze</title> 
+    <link href="/members/Static/VA/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/members/Static/VA/css/bootstrap-reset.css" rel="stylesheet">
+    <!--external css--> 
+    <link href="/members/Static/VA/css/style.css" rel="stylesheet"> 
+    <link href="/members/Static/VA/css/style-responsive.css" rel="stylesheet" /> 
+</head> 
+<br><br>
+<body class="lock-screen"> 
+<center>
+    <img src="/members/Static/VA/images/joker.jpg" alt="lock avatar" class="pulse-button" width="150" height="150" /> <p style="margin-top:5px;margin-bottom:-4rem;color:#fff;font-size:16px;">Please enter new password here:</p>
+            <form role="form" action="/members/resetPassword" method="post"><br><br><br>
+            <input type="hidden" value="<?php echo $email;?>" name="email">
+            <input type="password" name="pwd1" placeholder="Your password here" class="lock-name" style="float:none;width:250px;border-radius:2px;border-width:0;font-size:16px;color:#353535;margin-top:3px;" autocomplete="off" required><br> 
+            <input type="password" name="pwd2" placeholder="Re-enter your password " class="lock-name" style="float:none;width:250px;border-radius:2px;border-width:0;font-size:16px;color:#353535;margin-top:3px;" autocomplete="off" required><br> 
+            <button type="submit"class="btn btn-lock" style="background-color:#00f;margin-top:5px;color:#fff;width:250px;">Change now</button>
+            </form>
+            <?php
+           if(isset($msg)) 
+            echo "<div style='background:#e2e2e2;width:200px;font-size:14px;margin:0 auto;color:#000;padding:5px;'>".$msg."</div>";
+          ?>  
+           </center>
+            </div>
+         </div> 
+     <div class="mini-stat clearfix" style="width:50%;text-align:center;height:20%;margin-left:auto;margin-right:auto;background:none;border-radius:0;">        
+     </div> 
