@@ -8,6 +8,6 @@ The project requires some database initializations that are present in project d
 > Signup as new user.
 > Login to view the dashboard.
 
-
+Demo at : http://jargonsmaze.xyz/members
 ************************************************************************************************************
 Feel free to share your comments @iamtheking1abhishek@gmail.com.
