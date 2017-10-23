@@ -39,6 +39,7 @@ class notes {
         return $this->Db->Insert('INSERT INTO `todo` (`uid`,`id`, `text`) VALUES (?,NULL, ?);');
         }
     }
+    
     public function get_access_time($id){
       $this->Db->set_parameters(array($id)); 
         if($data=$this->Db->find_one('select substring(`time`,12) as time from todo where uid=?')){

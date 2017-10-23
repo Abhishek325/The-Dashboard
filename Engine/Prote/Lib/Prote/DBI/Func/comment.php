@@ -101,7 +101,7 @@ class comment{
     public function getSavedData($user,$data)
     {
        $conn = mysqli_connect("localhost","root","") or die(" Error connecting to the server !!!");
-        mysqli_select_db($conn,"jargons_db") or die("Unable to connect to the database !!");    
+        mysqli_select_db($conn,"jargons_db") or die("Unable to connect to the database 123!!");    
         $sql="SELECT ".$data." as data from posttemp where postOwner='".$user."';";
         $result = mysqli_query($conn,$sql); 
         if($row=mysqli_fetch_assoc($result))      

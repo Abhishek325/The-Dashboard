@@ -725,7 +725,7 @@ function alarmF()
    return false; 
 }); 
 
-$('.my  notis').click(function(e){   
+$('.mynotis').click(function(e){   
     var x = this.id;
     var noteid = x.substring(5,x.length);    
     var notiC=document.getElementById('notiCount').innerHTML; 
