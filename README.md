@@ -7,7 +7,6 @@ The project requires some database initializations that are present in project d
 > Import the 'jargons_db.sql' file to the above created database. 
 > Signup as new user.
 > Login to view the dashboard.
-
-Demo at : http://jargonsmaze.xyz/members
+ 
 ************************************************************************************************************
 Feel free to share your comments @iamtheking1abhishek@gmail.com.
