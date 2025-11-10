@@ -11,25 +11,25 @@ $id=$Service->Prote()->DBI()->Func()->users()->mapUserId($email);
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <meta name='description' content=''>
     <meta name='author' content='ThemeBucket'>
-    <link rel='shortcut icon' href='/members/Static/VA/images/joker.jpg'>
+    <link rel='shortcut icon' href='/Static/VA/images/joker.jpg'>
     <title>".$name." online</title>
     <!--Core CSS -->
-    <link href='/members/Static/VA/bs3/css/bootstrap.min.css' rel='stylesheet'>
-    <link href='/members/Static/VA/css/custom.css' rel='stylesheet'>
-    <link href='/members/Static/VA/assets/jquery-ui/jquery-ui-1.10.1.custom.min.css' rel='stylesheet'>
-    <link href='/members/Static/VA/css/bootstrap-reset.css' rel='stylesheet'>
-    <link href='/members/Static/VA/assets/font-awesome/css/font-awesome.css' rel='stylesheet'>
-    <link href='/members/Static/VA/assets/jvector-map/jquery-jvectormap-1.2.2.css' rel='stylesheet'>
-    <link href='/members/Static/VA/css/clndr.css' rel='stylesheet'> 
-    <link href='/members/Static/VA/assets/css3clock/css/style.css' rel='stylesheet'> 
-    <link rel='stylesheet' href='/members/Static/VA/assets/morris-chart/morris.css'> 
+    <link href='/Static/VA/bs3/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='/Static/VA/css/custom.css' rel='stylesheet'>
+    <link href='/Static/VA/assets/jquery-ui/jquery-ui-1.10.1.custom.min.css' rel='stylesheet'>
+    <link href='/Static/VA/css/bootstrap-reset.css' rel='stylesheet'>
+    <link href='/Static/VA/assets/font-awesome/css/font-awesome.css' rel='stylesheet'>
+    <link href='/Static/VA/assets/jvector-map/jquery-jvectormap-1.2.2.css' rel='stylesheet'>
+    <link href='/Static/VA/css/clndr.css' rel='stylesheet'> 
+    <link href='/Static/VA/assets/css3clock/css/style.css' rel='stylesheet'> 
+    <link rel='stylesheet' href='/Static/VA/assets/morris-chart/morris.css'> 
      <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
-    <link href='/members/Static/VA/css/style.css' rel='stylesheet'>
-    <link href='/members/Static/VA/css/style-responsive.css' rel='stylesheet'/>  
+    <link href='/Static/VA/css/style.css' rel='stylesheet'>
+    <link href='/Static/VA/css/style-responsive.css' rel='stylesheet'/>  
     <script src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js'></script>
     <script src='https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js'></script>
-    <script src='/members/Static/VA/js/date_time.js'></script>
-    <script src='/members/Static/VA/js/ajax.jquery.min.js'></script>
+    <script src='/Static/VA/js/date_time.js'></script>
+    <script src='/Static/VA/js/ajax.jquery.min.js'></script>
     <![endif]-->
 </head> 
 <div onmouseover='resetDormancy()' onclick='resetDormancy()' onkeypress='resetDormancy()'>
@@ -149,7 +149,7 @@ $id=$Service->Prote()->DBI()->Func()->users()->mapUserId($email);
                 <!-- user login dropdown start-->
                 <li class='dropdown'>
                     <a data-toggle='dropdown' class='dropdown-toggle' href='#'>
-                        <img alt='' src='/members/Static/VA/images/joker.jpg'>
+                        <img alt='' src='/Static/VA/images/joker.jpg'>
                         <span class='username'>".$name."</span>
                         <b class='caret'></b>
                     </a>
@@ -314,7 +314,7 @@ $id=$Service->Prote()->DBI()->Func()->users()->mapUserId($email);
         <li>
             <div class='prog-row'>
                 <div class='user-thumb'>
-                    <a href='#'><img src='/members/Static/VA/images/avatar1_small.jpg' alt=''></a>
+                    <a href='#'><img src='/Static/VA/images/avatar1_small.jpg' alt=''></a>
                 </div>
                 <div class='user-details'>
                     <h4><a href='#'>Jonathan Smith</a></h4>
@@ -328,7 +328,7 @@ $id=$Service->Prote()->DBI()->Func()->users()->mapUserId($email);
             </div>
             <div class='prog-row'>
                 <div class='user-thumb'>
-                    <a href='#'><img src='/members/Static/VA/images/avatar1.jpg' alt=''></a>
+                    <a href='#'><img src='/Static/VA/images/avatar1.jpg' alt=''></a>
                 </div>
                 <div class='user-details'>
                     <h4><a href='#'>Anjelina Joe</a></h4>
@@ -356,7 +356,7 @@ $id=$Service->Prote()->DBI()->Func()->users()->mapUserId($email);
             </div>
             <div class='prog-row'>
                 <div class='user-thumb'>
-                    <a href='#'><img src='/members/Static/VA/images/avatar1_small.jpg' alt=''></a>
+                    <a href='#'><img src='/Static/VA/images/avatar1_small.jpg' alt=''></a>
                 </div>
                 <div class='user-details'>
                     <h4><a href='#'>Mark Henry</a></h4>
@@ -370,7 +370,7 @@ $id=$Service->Prote()->DBI()->Func()->users()->mapUserId($email);
             </div>
             <div class='prog-row'>
                 <div class='user-thumb'>
-                    <a href='#'><img src='/members/Static/VA/images/avatar1.jpg' alt=''></a>
+                    <a href='#'><img src='/Static/VA/images/avatar1.jpg' alt=''></a>
                 </div>
                 <div class='user-details'>
                     <h4><a href='#'>Shila Jones</a></h4>
@@ -497,11 +497,11 @@ $id=$Service->Prote()->DBI()->Func()->users()->mapUserId($email);
                                 </div>
          </div>
         <!-- Modal end-->
-<audio id='audio' src='/members/Static/VA/sounds/reminder.mp3' loop ></audio>
-<audio id='hour' src='/members/Static/VA/sounds/hour.mp3'></audio>  
-<audio id='thecountdown' src='/members/Static/VA/sounds/thecountdown.mp3'></audio>  
-<script src='/members/Static/VA/js/ajax.jquery.min.js'></script>
-<script src='/members/Static/VA/js/materialize.js'></script>  
+<audio id='audio' src='/Static/VA/sounds/reminder.mp3' loop ></audio>
+<audio id='hour' src='/Static/VA/sounds/hour.mp3'></audio>  
+<audio id='thecountdown' src='/Static/VA/sounds/thecountdown.mp3'></audio>  
+<script src='/Static/VA/js/ajax.jquery.min.js'></script>
+<script src='/Static/VA/js/materialize.js'></script>  
 <script type='text/javascript'>
 
 var al=0,alon=0; 

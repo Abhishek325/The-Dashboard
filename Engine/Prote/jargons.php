@@ -19,7 +19,8 @@ $Config->set_autoloader($AutoLoad,'standard');
 
 //platform dependence for cloud platforms
 //Based on sub domain 
-$subdomain=array_shift((explode(".",$_SERVER['HTTP_HOST'])));
+$hostParts = explode(".", $_SERVER['HTTP_HOST']);
+$subdomain = array_shift($hostParts);
 $platform='REMOTE';
 // session_name("ProteSession");
 //Set platform variable
@@ -35,7 +36,7 @@ switch ($platform) {
 		//Debug is off. We are on development mode.	
 		$Config->set_database_user('root');
 		$Config->set_database_pass('');
-		$Config->set_database_name('jargons_db');
+		$Config->set_database_name('mydb');
 
 		break;
 
@@ -49,9 +50,10 @@ switch ($platform) {
 		break;
 	default:
 		//Debug off. remote unidentified platform
-		$Config->set_database_user('admin_jargon');
-		$Config->set_database_pass('c00l+b0y');
-		$Config->set_database_name('jargons_db');
+		$Config->set_database_host('db');
+		$Config->set_database_user('user');
+		$Config->set_database_pass('userpassword');
+		$Config->set_database_name('mydb');
 		break;
 }
 // $Config->stop_debug();

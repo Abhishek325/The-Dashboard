@@ -1,11 +1,11 @@
  <?php
 include($Service->Config()->get_basepath().'/Views/VA/header.php');  
   echo " 
-    <link rel='stylesheet' type='text/css' href='/members/Static/VA/assets/bootstrap-fileupload/bootstrap-fileupload.css' /> 
-    <link rel='stylesheet' href='/members/Static/VA/assets/file-uploader/css/jquery.fileupload.css'>
-    <link rel='stylesheet' href='/members/Static/VA/assets/file-uploader/css/jquery.fileupload-ui.css'>  
+    <link rel='stylesheet' type='text/css' href='/Static/VA/assets/bootstrap-fileupload/bootstrap-fileupload.css' /> 
+    <link rel='stylesheet' href='/Static/VA/assets/file-uploader/css/jquery.fileupload.css'>
+    <link rel='stylesheet' href='/Static/VA/assets/file-uploader/css/jquery.fileupload-ui.css'>  
     <!-- Include Font Awesome. --> 
-    <script src='/members/Static/VA/ckeditor/ckeditor.js'></script>
+    <script src='/Static/VA/ckeditor/ckeditor.js'></script>
 
     <style>
     .myHelper
@@ -30,7 +30,7 @@ include($Service->Config()->get_basepath().'/Views/VA/header.php');
                                 <div id='day' style='display:none;'></div> 
                                 <div id='day1' style='display:none;'></div>
                                 <div id='date1' style='text-shadow:none;color:#aaa;font-size:15px;display:inline;'></div> 
-                                <audio src='/members/Static/VA/sounds/hour.mp3' hidden='true'></audio> 
+                                <audio src='/Static/VA/sounds/hour.mp3' hidden='true'></audio> 
                                 <div id='almstatus' style='float:right;font-weight:300;margin-top:-5rem;font-size:16px;margin-right:0.5rem;'>No Alarm.</div>";
                     $flag=$Service->Prote()->DBI()->Func()->comment()->checkUserInitValues($Service->Prote()->DBI()->Func()->users()->mapUser($_SESSION['email'])); 
                     if($flag)
@@ -100,7 +100,7 @@ include($Service->Config()->get_basepath().'/Views/VA/header.php');
 <span class='language' hidden><div class='select-wrapper'><i class='mdi-navigation-arrow-drop-down active'></i><input type='text' class='select-dropdown' readonly='true' data-activates='select-options-66605473-d794-30d3-e7f9-d06c5639dbd5' value='India'><ul id='select-options-66605473-d794-30d3-e7f9-d06c5639dbd5' class='dropdown-content select-dropdown'></ul><select name='lang' id='lang' onchange='updateLang(this)' class='initialized'><optgroup label='English'><option value='6'>Australia</option><option value='7'>Canada</option>
 <option value='8'>India</option><option value='9'>New Zealand</option><option value='10'>South Africa</option>
 <option value='11'>United Kingdom</option><option value='12'>United States</option></optgroup><optgroup label='--'></optgroup></select></div></span> 
-  <img id='status' src='/members/Static/VA/images/listen.gif' style='margin: auto; display: none;'>
+  <img id='status' src='/Static/VA/images/listen.gif' style='margin: auto; display: none;'>
           </div>
                             </center>
                             </div>
@@ -120,7 +120,7 @@ include($Service->Config()->get_basepath().'/Views/VA/header.php');
         echo "
         <form class='form-horizontal bucket-form' method='post' action='/members/userinit'> 
                             <div class='form-group'><sbr> 
-                                <label class='col-sm-2 control-label' style='text-align:left;'>Before you write a post, let us know certain things about you so that we can tell the same to others&nbsp;<img src='/members/Static/VA/images/smileys/wink.png' alt='smiley' draggable='false' style='margin-top:-0.5rem;height:20px;' onclick=\"add('wink')\"/> </label>
+                                <label class='col-sm-2 control-label' style='text-align:left;'>Before you write a post, let us know certain things about you so that we can tell the same to others&nbsp;<img src='/Static/VA/images/smileys/wink.png' alt='smiley' draggable='false' style='margin-top:-0.5rem;height:20px;' onclick=\"add('wink')\"/> </label>
                                 <div class='col-sm-8'>  
                                     <input type='text'class='form-control' name='status' style='color:#888;width:85%' placeholder='Write a status here' autocomplete='off' maxxlength='200' required> 
                                     <div class='input-group m-bot15'  style='width:85%;margin-top:2px;'>
@@ -201,27 +201,27 @@ include($Service->Config()->get_basepath().'/Views/VA/header.php');
 </section>
 <!-- Placed js at the end of the document so the pages load faster -->
 <!--Core js-->
-<script src='/members/Static/VA/js/lib/jquery.js'></script>
-<script src='/members/Static/VA/assets/jquery-ui/jquery-ui-1.10.1.custom.min.js'></script>
-<script src='/members/Static/VA/bs3/js/bootstrap.min.js'></script>  
-<script src='/members/Static/VA/js/nicescroll/jquery.nicescroll.js' type='text/javascript'></script> 
-<script src='/members/Static/VA/js/dictation.js'></script> 
-<script type='text/javascript' src='/members/Static/VA/assets/bootstrap-fileupload/bootstrap-fileupload.js'></script>
+<script src='/Static/VA/js/lib/jquery.js'></script>
+<script src='/Static/VA/assets/jquery-ui/jquery-ui-1.10.1.custom.min.js'></script>
+<script src='/Static/VA/bs3/js/bootstrap.min.js'></script>  
+<script src='/Static/VA/js/nicescroll/jquery.nicescroll.js' type='text/javascript'></script> 
+<script src='/Static/VA/js/dictation.js'></script> 
+<script type='text/javascript' src='/Static/VA/assets/bootstrap-fileupload/bootstrap-fileupload.js'></script>
 <!--common script init for all pages-->
-<script src='/members/Static/VA/js/scripts.js'></script> 
+<script src='/Static/VA/js/scripts.js'></script> 
 <script type='text/javascript'>
 var dormantCount=".$Service->Prote()->DBI()->Func()->users()->getautologouttime($id)."; 
  function resetDormancy()
   { 
     if(dormantCount<10) 
-     //Materialize.toast('Woaah..that was really close. <img src=\"/members/Static/VA/images/smileys/wink.png\"><img src=\"/members/Static/VA/images/smileys/cool.png\">',5000);
+     //Materialize.toast('Woaah..that was really close. <img src=\"/Static/VA/images/smileys/wink.png\"><img src=\"/Static/VA/images/smileys/cool.png\">',5000);
     dormantCount=". $Service->Prote()->DBI()->Func()->users()->getautologouttime($id)."; 
   }
 var commentData='';
   function add(Value)
   {  
-     commentData=document.getElementById('tar').innerHTML+'<img src=/members/Static/VA/images/smileys/'+Value+'.png style=\"display:inline;height:20px;\"/>'; 
-     document.getElementById('tar').innerHTML+='<img src=/members/Static/VA/images/smileys/'+Value+'.png style=\"margin-top:2px;display:inline\">'; 
+     commentData=document.getElementById('tar').innerHTML+'<img src=/Static/VA/images/smileys/'+Value+'.png style=\"display:inline;height:20px;\"/>'; 
+     document.getElementById('tar').innerHTML+='<img src=/Static/VA/images/smileys/'+Value+'.png style=\"margin-top:2px;display:inline\">'; 
   }
   function setdata()
   {

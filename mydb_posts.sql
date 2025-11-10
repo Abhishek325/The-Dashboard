@@ -202,6 +202,17 @@ INSERT INTO `userpostinit` (`uname`, `title`, `status`, `userdp`) VALUES
 -- Constraints for dumped tables
 --
 
+CREATE TABLE IF NOT EXISTS `posttemp` (
+  `postId` INT(11) NOT NULL AUTO_INCREMENT,
+  `postAbout` VARCHAR(255) NOT NULL,
+  `postTitle` VARCHAR(255) NOT NULL,
+  `postContent` TEXT NOT NULL,
+  `postTimeStamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `postOwner` VARCHAR(255) NOT NULL,
+  `tags` VARCHAR(500) NOT NULL,
+  PRIMARY KEY (`postId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Constraints for table `postcommentmap`
 --

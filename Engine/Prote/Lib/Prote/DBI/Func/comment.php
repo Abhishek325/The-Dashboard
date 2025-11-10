@@ -20,8 +20,8 @@ class comment{
       exit();
      }*/
 
-    $conn = mysqli_connect("localhost","root","") or die(" Error connecting to the server !!!");
-    mysqli_select_db($conn,"jargonsblog") or die("Unable to connect to the database !!");    
+    $conn = mysqli_connect("db_posts","user2","userpassword") or die(" Error connecting to the server !!!");
+    mysqli_select_db($conn,"mydb_posts") or die("Unable to connect to the database !!");
     //insert post attributes into the database
      $content = preg_replace("/'/", "&#8217;", $content);
     $content = preg_replace('/"/', "&quot;", $content);
@@ -65,33 +65,39 @@ class comment{
 
 
     public function save($about,$title,$content,$tags,$user){ 
-    $conn = mysqli_connect("localhost","root","") or die(" Error connecting to the server !!!");
-    mysqli_select_db($conn,"jargons_db") or die("Unable to connect to the database !!");    
-    $about=htmlspecialchars($about, ENT_QUOTES);
-    $title=htmlspecialchars($title, ENT_QUOTES);
-    $tags=htmlspecialchars($tags, ENT_QUOTES); 
+      $conn = mysqli_connect("db_posts","user2","userpassword") or die(" Error connecting to the server !!!");
+      mysqli_select_db($conn,"mydb_posts") or die("Unable to connect to the database !!");    
+      $about=htmlspecialchars($about, ENT_QUOTES);
+      $title=htmlspecialchars($title, ENT_QUOTES);
+      $tags=htmlspecialchars($tags, ENT_QUOTES); 
 
-    $sql="SELECT count(*) as count from posttemp where postOwner='".$user."'";
-        $result = mysqli_query($conn,$sql); 
-        $row=mysqli_fetch_assoc($result);     
-        if($row['count']!=0) 
-        {   
-          $sql="UPDATE `posttemp` SET `postAbout`='".$about."',`postTitle`='".$title."',`postContent`='".$content."',`tags`='".$tags."',`postTimeStamp`=CURRENT_TIMESTAMP where `postOwner`='".$user."';";  
-          $result = mysqli_query($conn,$sql);   
-          return;
-        }
+      $sql="SELECT count(*) as count from posttemp where postOwner='".$user."'";
+          $result = mysqli_query($conn,$sql); 
+          $row=mysqli_fetch_assoc($result);     
+          if($row['count']!=0) 
+          {   
+            $sql="UPDATE `posttemp` SET `postAbout`='".$about."',`postTitle`='".$title."',`postContent`='".$content."',`tags`='".$tags."',`postTimeStamp`=CURRENT_TIMESTAMP where `postOwner`='".$user."';";  
+            $result = mysqli_query($conn,$sql);   
+            return;
+          }
 
-    $sql = "INSERT INTO `posttemp` (`postId`, `postAbout`, `postTitle`, `postContent`, `postTimeStamp`, `postOwner`, `tags`) VALUES (NULL,'".$about."', '".$title."', '".$content."', CURRENT_TIMESTAMP, '".$user."','".$tags."');"; 
-    $result = mysqli_query($conn,$sql);     
-    return $result;
+      $sql = "INSERT INTO `posttemp` (`postId`, `postAbout`, `postTitle`, `postContent`, `postTimeStamp`, `postOwner`, `tags`) VALUES (NULL,'".$about."', '".$title."', '".$content."', CURRENT_TIMESTAMP, '".$user."','".$tags."');"; 
+      $result = mysqli_query($conn,$sql);     
+      return $result;
     }    
 
     public function userSavedData($user)
     {
-       $conn = mysqli_connect("localhost","root","") or die(" Error connecting to the server !!!");
-        mysqli_select_db($conn,"jargons_db") or die("Unable to connect to the database !!");    
+        $conn = mysqli_connect("db_posts","user2","userpassword") or die(" Error connecting to the server !!!");
+        mysqli_select_db($conn,"mydb_posts") or die("Unable to connect to the database !!");    
         $sql="SELECT count(*) as count from posttemp where postOwner='".$user."';";
         $result = mysqli_query($conn,$sql); 
+
+        if (!$result) {
+            die("Query failed: " . mysqli_error($conn));
+        }
+
+
         if($row=mysqli_fetch_assoc($result))      
          return $row['count']; 
         else
@@ -100,8 +106,8 @@ class comment{
 
     public function getSavedData($user,$data)
     {
-       $conn = mysqli_connect("localhost","root","") or die(" Error connecting to the server !!!");
-        mysqli_select_db($conn,"jargons_db") or die("Unable to connect to the database !!");    
+        $conn = mysqli_connect("db_posts","user2","userpassword") or die(" Error connecting to the server !!!");
+        mysqli_select_db($conn,"mydb_posts") or die("Unable to connect to the database !!");    
         $sql="SELECT ".$data." as data from posttemp where postOwner='".$user."';";
         $result = mysqli_query($conn,$sql); 
         if($row=mysqli_fetch_assoc($result))      
@@ -112,16 +118,16 @@ class comment{
 
     public function addImageMap($pid,$image)
     {
-     $conn = mysqli_connect("localhost","root","") or die(" Error connecting to the server !!!");
-        mysqli_select_db($conn,"jargonsblog") or die("Unable to connect to the database !!");   
+     $conn = mysqli_connect("db_posts","user2","userpassword") or die(" Error connecting to the server !!!");
+        mysqli_select_db($conn,"mydb_posts") or die("Unable to connect to the database !!");   
         $sql="INSERT INTO `jargonsblog`.`postimagemap` (`postId`, `image`) VALUES ('".$pid."', '".$image."');";   
         $result = mysqli_query($conn,$sql); 
         return $result;
     }
     public function getCurPostId($user)
     {
-        $conn = mysqli_connect("localhost","root","") or die(" Error connecting to the server !!!");
-        mysqli_select_db($conn,"jargonsblog") or die("Unable to connect to the database !!");   
+        $conn = mysqli_connect("db_posts","user2","userpassword") or die(" Error connecting to the server !!!");
+        mysqli_select_db($conn,"mydb_posts") or die("Unable to connect to the database !!");   
         $sql="SELECT max(postId) as pid FROM `post` where postOwner='".$user."'";
         $result = mysqli_query($conn,$sql); 
         $row=mysqli_fetch_assoc($result);     
@@ -131,8 +137,8 @@ class comment{
 
     public function addPostSecondaryImagesMap($postid,$image)
     {
-        $conn = mysqli_connect("localhost","root","") or die(" Error connecting to the server !!!");
-        mysqli_select_db($conn,"jargonsblog") or die("Unable to connect to the database !!");   
+        $conn = mysqli_connect("db_posts","user2","userpassword") or die(" Error connecting to the server !!!");
+        mysqli_select_db($conn,"mydb_posts") or die("Unable to connect to the database !!");   
         $sql="INSERT INTO `postsecondaryimagemap` (`postId`, `image`) VALUES ('".$postid."', '".$image."');";   
         $result = mysqli_query($conn,$sql);   
     } 
@@ -141,8 +147,8 @@ class comment{
     {
         $status = preg_replace("/</", "&lt;", $status);
         $title = preg_replace("/>/", "&gt;", $title);
-        $conn = mysqli_connect("localhost","root","") or die(" Error connecting to the server !!!");
-        mysqli_select_db($conn,"jargonsblog") or die("Unable to connect to the database !!");   
+        $conn = mysqli_connect("db_posts","user2","userpassword") or die(" Error connecting to the server !!!");
+        mysqli_select_db($conn,"mydb_posts") or die("Unable to connect to the database !!");   
         if($this->checkUserInitValues($user)==1)
         {
           header("location:/members/write-post");
@@ -155,8 +161,8 @@ class comment{
 
     public function updateUserValues($status,$title,$user)
     {
-        $conn = mysqli_connect("localhost","root","") or die(" Error connecting to the server !!!");
-        mysqli_select_db($conn,"jargonsblog") or die("Unable to connect to the database !!");   
+        $conn = mysqli_connect("db_posts","user2","userpassword") or die(" Error connecting to the server !!!");
+        mysqli_select_db($conn,"mydb_posts") or die("Unable to connect to the database !!");   
         $sql="UPDATE `userpostinit` SET `status`='".$status."',`title`='".$title."' where `uname`='".$user."';";  
         $result = mysqli_query($conn,$sql);   
         return 1;
@@ -164,8 +170,8 @@ class comment{
      
     public function updateUserPic($user,$file)
     {
-        $conn = mysqli_connect("localhost","root","") or die(" Error connecting to the server !!!");
-        mysqli_select_db($conn,"jargonsblog") or die("Unable to connect to the database !!");   
+        $conn = mysqli_connect("db_posts","user2","userpassword") or die(" Error connecting to the server !!!");
+        mysqli_select_db($conn,"mydb_posts") or die("Unable to connect to the database !!");   
         $sql="UPDATE `userpostinit` SET `userdp`='".$file."' where `uname`='".$user."';";  
         $result = mysqli_query($conn,$sql);   
         return 1;
@@ -173,8 +179,8 @@ class comment{
 
     public function checkUserInitValues($user)
     {
-      $conn = mysqli_connect("localhost","root","") or die(" Error connecting to the server !!!");
-        mysqli_select_db($conn,"jargonsblog") or die("Unable to connect to the database !!");   
+      $conn = mysqli_connect("db_posts","user2","userpassword") or die(" Error connecting to the server !!!");
+        mysqli_select_db($conn,"mydb_posts") or die("Unable to connect to the database !!");   
         $sql="SELECT count(*) as count from userpostinit where uname='".$user."'";
         $result = mysqli_query($conn,$sql); 
         $row=mysqli_fetch_assoc($result);     
@@ -185,8 +191,8 @@ class comment{
 
     public function getImageName($user)
     {
-      $conn = mysqli_connect("localhost","root","") or die(" Error connecting to the server !!!");
-        mysqli_select_db($conn,"jargonsblog") or die("Unable to connect to the database !!");   
+      $conn = mysqli_connect("db_posts","user2","userpassword") or die(" Error connecting to the server !!!");
+        mysqli_select_db($conn,"mydb_posts") or die("Unable to connect to the database !!");   
         $sql="SELECT userdp from userpostinit where uname='".$user."'";
         $result = mysqli_query($conn,$sql); 
         $row=mysqli_fetch_assoc($result);      
@@ -196,8 +202,8 @@ class comment{
     
     public function getAllPosts()
     {
-      $conn = mysqli_connect("localhost","root","") or die(" Error connecting to the server !!!");
-        mysqli_select_db($conn,"jargonsblog") or die("Unable to connect to the database !!");   
+      $conn = mysqli_connect("db_posts","user2","userpassword") or die(" Error connecting to the server !!!");
+        mysqli_select_db($conn,"mydb_posts") or die("Unable to connect to the database !!");   
         $sql="SELECT postTitle,postContent from post ";
         $result = mysqli_query($conn,$sql);  
         return $result; 
@@ -205,8 +211,8 @@ class comment{
 
     public function getPostTitle($id)
     {
-      $conn = mysqli_connect("localhost","root","") or die(" Error connecting to the server !!!");
-        mysqli_select_db($conn,"jargonsblog") or die("Unable to connect to the database !!");   
+      $conn = mysqli_connect("db_posts","user2","userpassword") or die(" Error connecting to the server !!!");
+        mysqli_select_db($conn,"mydb_posts") or die("Unable to connect to the database !!");   
         $sql="SELECT postTitle from post where postId=".$id;
         $result = mysqli_query($conn,$sql);   
         $row=mysqli_fetch_assoc($result);   
@@ -214,8 +220,8 @@ class comment{
     } 
     public function getPostContent($id)
     {
-      $conn = mysqli_connect("localhost","root","") or die(" Error connecting to the server !!!");
-        mysqli_select_db($conn,"jargonsblog") or die("Unable to connect to the database !!");   
+      $conn = mysqli_connect("db_posts","user2","userpassword") or die(" Error connecting to the server !!!");
+        mysqli_select_db($conn,"mydb_posts") or die("Unable to connect to the database !!");   
         $sql="SELECT postContent from post where postId=".$id;
         $result = mysqli_query($conn,$sql);   
         $row=mysqli_fetch_assoc($result);   
@@ -224,13 +230,12 @@ class comment{
     
     public function makeComment($pid,$comment,$user)
     {
-      $conn = mysqli_connect("localhost","root","") or die(" Error connecting to the server !!!");
-        mysqli_select_db($conn,"jargonsblog") or die("Unable to connect to the database !!");   
+      $conn = mysqli_connect("db_posts","user2","userpassword") or die(" Error connecting to the server !!!");
+        mysqli_select_db($conn,"mydb_posts") or die("Unable to connect to the database !!");   
         $sql="INSERT INTO `postcommentmap` (`postId`, `comment`, `uname`) VALUES ('".$pid."', '".$comment."', '".$user."');" ;
         $result = mysqli_query($conn,$sql);    
         return $result; 
-    } 
-
+    }
     /* 
     ALTER TABLE `posttemp` ADD `tags` VARCHAR(500) NOT NULL ;
 */

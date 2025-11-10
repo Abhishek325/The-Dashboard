@@ -29,7 +29,7 @@ include($Service->Config()->get_basepath().'/Views/VA/header.php');
                             <div class='form-group'> 
                                 <label class='col-sm-3 control-label'></label> 
                                 <div class='col-sm-6'>  
-                                  <center style='font-size:50px;text-shadow:2px 3px 2px #ccc;'> PR<img src='/members/Static/VA/images/project.png' style='width:12%;margin-top:-0.8rem;animation:spin 2s linear infinite;'>JECT</center>";
+                                  <center style='font-size:50px;text-shadow:2px 3px 2px #ccc;'> PR<img src='/Static/VA/images/project.png' style='width:12%;margin-top:-0.8rem;animation:spin 2s linear infinite;'>JECT</center>";
                                   if(isset($Service->Html()->error))
                                   {
                                     echo "<center>".$Service->Html()->error."<br><p style='margin-top:-2.5rem;font-size:15px;'>Add project details <a data-toggle='tab' href='#p2'><b>here</b></a>.</p></center>"; 
@@ -65,7 +65,7 @@ include($Service->Config()->get_basepath().'/Views/VA/header.php');
                             <div class='form-group'> 
                                 <label class='col-sm-3 control-label'></label>
                                 <div class='col-sm-6'>  
-                                  <center style='font-size:50px;text-shadow:2px 3px 2px #ccc;'> PR<img src='/members/Static/VA/images/project.png' style='width:12%;margin-top:-0.8rem;animation:spin 2s linear infinite;'>JECT</center>
+                                  <center style='font-size:50px;text-shadow:2px 3px 2px #ccc;'> PR<img src='/Static/VA/images/project.png' style='width:12%;margin-top:-0.8rem;animation:spin 2s linear infinite;'>JECT</center>
                                   <div class='input-group ' style='margin-bottom:1.5rem;'>
                                     <select class='form-control m-bot15' name='type' style='color:#666;'> 
                                         <option value='0'>Select a project...</option>";
@@ -151,7 +151,7 @@ include($Service->Config()->get_basepath().'/Views/VA/header.php');
                                 <div id='day' style='display:none;'></div> 
                                 <div id='day1' style='display:none;'></div>
                                 <div id='date1' style='text-shadow:none;color:#aaa;font-size:15px;display:inline;'></div>
-                                <audio src='/members/Static/VA/sounds/hour.mp3' hidden='true'></audio>
+                                <audio src='/Static/VA/sounds/hour.mp3' hidden='true'></audio>
             </div>
         </div>  
         <!-- page end-->";
@@ -246,26 +246,26 @@ include($Service->Config()->get_basepath().'/Views/VA/header.php');
 <div id='almstatus' style='float:right;font-weight:300;margin-top:-5.5rem;font-size:16px;margin-right:0.5rem;'>No Alarm.</div>
 <!-- Placed js at the end of the document so the pages load faster -->
 <!--Core js-->
-<script src='/members/Static/VA/js/lib/jquery.js'></script>
-<script src='/members/Static/VA/assets/jquery-ui/jquery-ui-1.10.1.custom.min.js'></script>
-<script src='/members/Static/VA/bs3/js/bootstrap.min.js'></script> 
-<script src='/members/Static/VA/js/nicescroll/jquery.nicescroll.js' type='text/javascript'></script> 
+<script src='/Static/VA/js/lib/jquery.js'></script>
+<script src='/Static/VA/assets/jquery-ui/jquery-ui-1.10.1.custom.min.js'></script>
+<script src='/Static/VA/bs3/js/bootstrap.min.js'></script> 
+<script src='/Static/VA/js/nicescroll/jquery.nicescroll.js' type='text/javascript'></script> 
 
 <!--common script init for all pages-->
-<script src='/members/Static/VA/js/scripts.js'></script> 
+<script src='/Static/VA/js/scripts.js'></script> 
 <script type='text/javascript'>
 var dormantCount=".$Service->Prote()->DBI()->Func()->users()->getautologouttime($id)."; 
  function resetDormancy()
   { 
     if(dormantCount<10) 
-     //Materialize.toast('Woaah..that was really close. <img src=\"/members/Static/VA/images/smileys/wink.png\"><img src=\"/members/Static/VA/images/smileys/cool.png\">',5000);
+     //Materialize.toast('Woaah..that was really close. <img src=\"/Static/VA/images/smileys/wink.png\"><img src=\"/Static/VA/images/smileys/cool.png\">',5000);
     dormantCount=". $Service->Prote()->DBI()->Func()->users()->getautologouttime($id)."; 
   }
 var commentData='';
   function add(Value)
   {  
-     commentData=document.getElementById('tar').innerHTML+'<img src=/members/Static/VA/images/smileys/'+Value+'.png style=\"display:inline;height:20px;\"/>'; 
-     document.getElementById('tar').innerHTML+='<img src=/members/Static/VA/images/smileys/'+Value+'.png style=\"margin-top:2px;display:inline\">'; 
+     commentData=document.getElementById('tar').innerHTML+'<img src=/Static/VA/images/smileys/'+Value+'.png style=\"display:inline;height:20px;\"/>'; 
+     document.getElementById('tar').innerHTML+='<img src=/Static/VA/images/smileys/'+Value+'.png style=\"margin-top:2px;display:inline\">'; 
   }
   function setusers()
   {

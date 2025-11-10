@@ -9,23 +9,23 @@ $id=$Service->Prote()->DBI()->Func()->users()->mapUserId($email);
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <meta name='description' content=''> 
-    <link rel='shortcut icon' href='/members/Static/VA/images/joker.jpg'>
+    <link rel='shortcut icon' href='/Static/VA/images/joker.jpg'>
     <title>".$name." online</title>
     <!--Core CSS -->
-    <link href='/members/Static/VA/bs3/css/bootstrap.min.css' rel='stylesheet'>
-    <link href='/members/Static/VA/css/bootstrap-reset.css' rel='stylesheet'> 
-    <link href='/members/Static/VA/assets/font-awesome/css/font-awesome.css' rel='stylesheet'> 
-    <link href='/members/Static/VA/css/style.css' rel='stylesheet'>
-    <link href='/members/Static/VA/css/style-responsive.css' rel='stylesheet'/>   
-    <script src='/members/Static/VA/js/ajax.jquery.min.js'></script>
+    <link href='/Static/VA/bs3/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='/Static/VA/css/bootstrap-reset.css' rel='stylesheet'> 
+    <link href='/Static/VA/assets/font-awesome/css/font-awesome.css' rel='stylesheet'> 
+    <link href='/Static/VA/css/style.css' rel='stylesheet'>
+    <link href='/Static/VA/css/style-responsive.css' rel='stylesheet'/>   
+    <script src='/Static/VA/js/ajax.jquery.min.js'></script>
     <![endif]--> 
-<script  type='text/javascript' src='/members/Static/VA/js/typeahead.min.js'></script>
+<script  type='text/javascript' src='/Static/VA/js/typeahead.min.js'></script>
 <script type='text/javascript'>
 $(document).ready(function(){ 
   $('input.typeahead').typeahead({
     name: 'accounts', local: ["; 
-    $conn = mysqli_connect("localhost","root","") or die(" Error connecting to the server !!!");
-        mysqli_select_db($conn,"jargons_db") or die("Unable to connect to the database !!");   
+    // $conn = mysqli_connect("localhost","root","") or die(" Error connecting to the server !!!");
+        mysqli_select_db($conn,"mydb") or die("Unable to connect to the database !!");   
         $sql="SELECT interest from interest order by interest LIMIT 20000";
         $result = mysqli_query($conn,$sql); 
         while($row=mysqli_fetch_assoc($result))

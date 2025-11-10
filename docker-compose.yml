@@ -1,0 +1,45 @@
+services:
+  php:
+    image: php:5.5-apache
+    platform: linux/amd64
+    build: .
+    container_name: php55
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html:cached
+    depends_on:
+      - db
+
+  db:
+    image: mariadb:10.1
+    container_name: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: userpassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  db_posts:
+    image: mariadb:10.1
+    container_name: mariadb_posts
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass2
+      MYSQL_DATABASE: mydb_posts
+      MYSQL_USER: user2
+      MYSQL_PASSWORD: userpassword
+    volumes:
+      - db_posts_data:/var/lib/mysql
+    ports:
+      - "3307:3306"
+
+  
+
+volumes:
+  db_data:
+  db_posts_data:

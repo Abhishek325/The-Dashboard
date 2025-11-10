@@ -1,4 +1,4 @@
- <?php  
+<?php  
  session_start();
 date_default_timezone_set('Asia/Kolkata');
 /**
@@ -87,10 +87,10 @@ $Router->post('/members/login',function() use ($Service) {
 		$_SESSION['userName']=$Service->Prote()->DBI()->Func()->users()->mapUser($_SESSION['email']);
 		$_SESSION['userId']=$Service->Prote()->DBI()->Func()->users()->mapUserId($_SESSION['email']);
 		$userInterestCount = $Service->Prote()->DBI()->Func()->users()->interestInit($_SESSION['userId']);
-		if($userInterestCount) 
+		// if($userInterestCount) 
 		  include('Views/VA/dash.php'); 
-		else
-		  header("location:/members/interest");  
+		// else
+		//   header("location:/members/interest");  
 	}
 		else{   
 				$act="Login attempt @".date('H').":".date('i');
@@ -511,7 +511,7 @@ echo "<html>
 							<button type='reset' class='small alert btn' style='padding:7px;'>Reset</button>
 							<div id='progress'></div>
 							</form>
-							<script src='/members/Static/VA/js/ajax.jquery.min.js'></script>
+							<script src='/Static/VA/js/ajax.jquery.min.js'></script>
 							<script type='text/javascript'>
 							/* set global variable i */ 
 							var i=0;  
@@ -547,7 +547,7 @@ echo "<html>
 							y.setAttribute('required', 'true');
 							y.setAttribute('style', 'width:20rem;background:#fff;'); 
 							var g = document.createElement('IMG');
-							g.setAttribute('src', '/members/Static/VA/images/delete.png'); 
+							g.setAttribute('src', '/Static/VA/images/delete.png'); 
 							g.setAttribute('style', 'margin-left:-1.5rem;'); 
 							increment(); 
 							y.setAttribute('Name','val'+i);
@@ -730,7 +730,7 @@ $Router->post('/members/addcomment',function() use ($Service) {
 							y.setAttribute('required', 'true');
 							y.setAttribute('style', 'width:20rem;background:#fff;'); 
 							var g = document.createElement('IMG');
-							g.setAttribute('src', '/members/Static/VA/images/delete.png'); 
+							g.setAttribute('src', '/Static/VA/images/delete.png'); 
 							g.setAttribute('style', 'margin-left:-1.5rem;'); 
 							increment(); 
 							y.setAttribute('Name','val'+i);

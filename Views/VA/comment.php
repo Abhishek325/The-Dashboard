@@ -56,8 +56,8 @@ include($Service->Config()->get_basepath().'/Views/VA/header.php');
                                   <div class='input-group ' style='margin-bottom:1.5rem;'>
                                   <select class='form-control m-bot15' name='post' style='color:#666;'> 
                                         <option value='0'>Select a post to make comment</option>";
-                                         $conn = mysqli_connect("localhost","root","") or die(" Error connecting to the server !!!");
-                                          mysqli_select_db($conn,"jargonsblog") or die("Unable to connect to the database !!");   
+                                         $conn = mysqli_connect("mydb_posts","root","") or die(" Error connecting to the server !!!");
+                                          mysqli_select_db($conn,"mydb_posts") or die("Unable to connect to the database !!");   
                                           $sql="SELECT postId,postTitle,substring(postContent,1,55) as postContent from post";
                                           $result = mysqli_query($conn,$sql);   
                                           while($row=mysqli_fetch_assoc($result))   

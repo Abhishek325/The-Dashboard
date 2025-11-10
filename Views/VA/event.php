@@ -125,7 +125,7 @@ $id=$Service->Prote()->DBI()->Func()->users()->mapUserId($_SESSION['email']);
              <div id='day' style='display:none;'></div> 
              <div id='day1' style='display:none;'></div>
              <div id='date1' style='text-shadow:none;color:#aaa;font-size:15px;display:inline;'></div>
-             <audio src='/members/Static/VA/sounds/hour.mp3' hidden='true'></audio>
+             <audio src='/Static/VA/sounds/hour.mp3' hidden='true'></audio>
             </div>
            </div>
           </div>
@@ -134,19 +134,19 @@ $id=$Service->Prote()->DBI()->Func()->users()->mapUserId($_SESSION['email']);
           <div id='almstatus' style='float:right;font-weight:300;margin-top:-5.5rem;font-size:16px;margin-right:0.5rem;'>No Alarm.</div>
 <!-- Placed js at the end of the document so the pages load faster -->
 <!--Core js-->
-<script src='/members/Static/VA/js/lib/jquery.js'></script>
-<script src='/members/Static/VA/assets/jquery-ui/jquery-ui-1.10.1.custom.min.js'></script>
-<script src='/members/Static/VA/bs3/js/bootstrap.min.js'></script> 
-<script src='/members/Static/VA/js/nicescroll/jquery.nicescroll.js' type='text/javascript'></script>  
+<script src='/Static/VA/js/lib/jquery.js'></script>
+<script src='/Static/VA/assets/jquery-ui/jquery-ui-1.10.1.custom.min.js'></script>
+<script src='/Static/VA/bs3/js/bootstrap.min.js'></script> 
+<script src='/Static/VA/js/nicescroll/jquery.nicescroll.js' type='text/javascript'></script>  
 
 <!--common script init for all pages-->
-<script src='/members/Static/VA/js/scripts.js'></script>  
+<script src='/Static/VA/js/scripts.js'></script>  
 <script type='text/javascript'>
 /*var dormantCount=".$Service->Prote()->DBI()->Func()->users()->getautologouttime($id)."; 
  function resetDormancy()
   { 
     if(dormantCount<10) 
-     //Materialize.toast('Woaah..that was really close. <img src=\"/members/Static/VA/images/smileys/wink.png\"><img src=\"/members/Static/VA/images/smileys/cool.png\">',5000);
+     //Materialize.toast('Woaah..that was really close. <img src=\"/Static/VA/images/smileys/wink.png\"><img src=\"/Static/VA/images/smileys/cool.png\">',5000);
     dormantCount=". $Service->Prote()->DBI()->Func()->users()->getautologouttime($id)."; 
   }*/ 
 

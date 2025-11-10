@@ -292,33 +292,33 @@ include($Service->Config()->get_basepath().'/Views/VA/header.php');
 </section>
 <!-- Placed js at the end of the document so the pages load faster -->
 <!--Core js-->
-<script src='/members/Static/VA/js/lib/jquery.js'></script>
-<script src='/members/Static/VA/assets/jquery-ui/jquery-ui-1.10.1.custom.min.js'></script>
-<script src='/members/Static/VA/bs3/js/bootstrap.min.js'></script>
-<script src='/members/Static/VA/js/accordion-menu/jquery.dcjqaccordion.2.7.js'></script>
-<script src='/members/Static/VA/js/scrollTo/jquery.scrollTo.min.js'></script>  
-<script src='/members/Static/VA/assets/jQuery-slimScroll-1.3.0/jquery.slimscroll.js'></script>
-<script src='/members/Static/VA/assets/skycons/skycons.js'></script>
-<script src='/members/Static/VA/assets/jquery.scrollTo/jquery.scrollTo.js'></script>
+<script src='/Static/VA/js/lib/jquery.js'></script>
+<script src='/Static/VA/assets/jquery-ui/jquery-ui-1.10.1.custom.min.js'></script>
+<script src='/Static/VA/bs3/js/bootstrap.min.js'></script>
+<script src='/Static/VA/js/accordion-menu/jquery.dcjqaccordion.2.7.js'></script>
+<script src='/Static/VA/js/scrollTo/jquery.scrollTo.min.js'></script>  
+<script src='/Static/VA/assets/jQuery-slimScroll-1.3.0/jquery.slimscroll.js'></script>
+<script src='/Static/VA/assets/skycons/skycons.js'></script>
+<script src='/Static/VA/assets/jquery.scrollTo/jquery.scrollTo.js'></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
-<script src='/members/Static/VA/assets/calendar/clndr.js'></script>
-<script src='/members/Static/VA/js/nicescroll/jquery.nicescroll.js' type='text/javascript'></script> 
+<script src='/Static/VA/assets/calendar/clndr.js'></script>
+<script src='/Static/VA/js/nicescroll/jquery.nicescroll.js' type='text/javascript'></script> 
 <script src='http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js'></script>
-<script src='/members/Static/VA/assets/calendar/moment-2.2.1.js'></script>
-<script src='/members/Static/VA/js/calendar/evnt.calendar.init.js'></script>
-<script src='/members/Static/VA/assets/jvector-map/jquery-jvectormap-1.2.2.min.js'></script>
-<script src='/members/Static/VA/assets/jvector-map/jquery-jvectormap-us-lcc-en.js'></script> 
+<script src='/Static/VA/assets/calendar/moment-2.2.1.js'></script>
+<script src='/Static/VA/js/calendar/evnt.calendar.init.js'></script>
+<script src='/Static/VA/assets/jvector-map/jquery-jvectormap-1.2.2.min.js'></script>
+<script src='/Static/VA/assets/jvector-map/jquery-jvectormap-us-lcc-en.js'></script> 
  
 <!--common script init for all pages-->
-<script src='/members/Static/VA/js/scripts.js'></script> 
+<script src='/Static/VA/js/scripts.js'></script> 
 
 <script type='text/javascript'>  
 $('#nextbtn').click();
   var commentData='';
   function add(Value)
   {  
-     commentData=document.getElementById('tar').innerHTML+'<img src=/members/Static/VA/images/smileys/'+Value+'.png style=\"display:inline;height:20px;\"/>'; 
-     document.getElementById('tar').innerHTML+='<img src=/members/Static/VA/images/smileys/'+Value+'.png style=\"margin-top:2px;display:inline\">'; 
+     commentData=document.getElementById('tar').innerHTML+'<img src=/Static/VA/images/smileys/'+Value+'.png style=\"display:inline;height:20px;\"/>'; 
+     document.getElementById('tar').innerHTML+='<img src=/Static/VA/images/smileys/'+Value+'.png style=\"margin-top:2px;display:inline\">'; 
   }
   function setdata()
   {
@@ -341,7 +341,7 @@ $('#nextbtn').click();
     while(false!==($entry=readdir($handle)))
     {
       if($entry!="." && $entry!="..")
-        echo "imgSrcs.push('Static/VA/uploads/".$entry."');";
+        echo "imgSrcs.push('/Static/VA/uploads/".$entry."');";
     }
      echo "setInterval(function()
         {

@@ -150,7 +150,7 @@ class Auth{
 
 			}
 		}else{
-			session_start();
+			// session_start();
 			$this->generate_auth_token();
 		}
 	}

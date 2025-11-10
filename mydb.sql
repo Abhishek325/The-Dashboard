@@ -36,23 +36,6 @@ CREATE TABLE IF NOT EXISTS `activity` (
   KEY `uid` (`uid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=358 ;
 
---
--- Dumping data for table `activity`
---
-
-INSERT INTO `activity` (`uid`, `id`, `act_des`, `time`, `type`) VALUES
-(14, 266, 'System on automated logout due to inactivity.', '2016-07-07 16:48:39', 'info'),
-(14, 270, 'User pin changed ', '2016-07-07 16:53:45', 'danger'),
-(14, 287, 'System on automated logout due to inactivity.', '2016-07-09 18:22:19', 'info'),
-(16, 318, 'System on automated logout due to inactivity.', '2016-08-15 14:24:02', 'info'),
-(1, 351, 'System on automated logout due to inactivity.', '2016-11-27 11:00:29', 'info'),
-(1, 352, 'System on automated logout due to inactivity.', '2016-11-29 17:40:46', 'info'),
-(1, 353, 'Login attempt @21:50', '2017-01-14 16:20:30', 'danger'),
-(1, 354, 'Login attempt @21:50', '2017-01-14 16:20:36', 'danger'),
-(1, 355, 'Login attempt @16:49', '2017-02-15 11:19:14', 'danger'),
-(1, 356, 'Login attempt @16:49', '2017-02-15 11:19:20', 'danger'),
-(1, 357, 'Login attempt @16:49', '2017-02-15 11:19:30', 'danger');
-
 -- --------------------------------------------------------
 
 --
@@ -1526,6 +1509,9 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
+INSERT INTO `users` (`name`, `Email`, `Pwd`, `pin`, `autologout`)
+VALUES ('admin', 'admin@example.com', 'd8d6c0a228e72269378dda340e37fde2e1129f9139aa7821432ab8f14f526f08a801393ce6db5163bb947d9a88ea79b26c15a9d340c1f618599a9ff5944906f1', 1234, 61);
+
 
 --
 -- Constraints for dumped tables
@@ -1534,8 +1520,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 -- Constraints for table `activity`
 --
-ALTER TABLE `activity`
-  ADD CONSTRAINT `activity_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `users` (`Id`);
+-- ALTER TABLE `activity`
+--   ADD CONSTRAINT `activity_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `users` (`Id`);
 
 --
 -- Constraints for table `alarm`
